@@ -45,6 +45,8 @@ impl crate::config::Config {
         }   
 
         // Линковка объектников
+        println!("Linking...");
+
         let obj_files = paths.iter()
             .map(|x| format!("build/.obj/{}.o", x.path().file_stem().unwrap().to_str().unwrap()))
             .collect::<Vec<String>>();
@@ -55,5 +57,7 @@ impl crate::config::Config {
             .args(&obj_files)
             .join()
             .unwrap();
+
+        println!("Building successful!");
     }
 }

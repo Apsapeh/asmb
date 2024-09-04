@@ -1,6 +1,7 @@
 use std::env;
 
 mod build;
+mod run;
 mod config;
 
 fn main() {
@@ -12,13 +13,14 @@ fn main() {
     }
     
     let config = config::Config::from_file("asmb.toml");
-    println!("Config: {:?}", config);
+    //println!("Config: {:?}", config);
     
     match args[1].as_str() {
-        "r" | "run" => println!("Hello, world!"),
+        "r" | "run" => config.run(),
         "b" | "build" => config.build(),
         "x" | "br" | "buildrun" => {
             config.build();
+            config.run();
             //println!("Goodbye, world!");
         },
         _ => println!("Unknown command"),
