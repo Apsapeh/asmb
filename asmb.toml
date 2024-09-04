@@ -1,0 +1,8 @@
+name = "test"
+kind = "bin"
+src = "asm_src"
+
+# src = "src_fld"
+# debug = true
+# flags = ["-C", "link-arg=-fuse-ld=lld"]
+# ignore = ["ingore.asm"]
